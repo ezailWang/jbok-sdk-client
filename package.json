@@ -1,0 +1,33 @@
+{
+  "author": "JBOK authors",
+  "name": "jbok-sdk",
+  "main":"/src",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c-block/jbok.git"
+  },
+  "description": "JBOK-SDK",
+  "build": {
+    "appId": "org.jbok.sdk"
+  },
+  "license": "MIT",
+  "version": "0.0.1",
+  "dependencies": {
+    "elliptic": "6.4.0",
+    "isomorphic-ws": "4.0.1",
+    "crypto-js": "3.1.9-1",
+    "axios": "0.18.0",
+    "ws": "6.1.2"
+  },
+  "devDependencies": {
+    "source-map-loader": "0.2.3",
+    "file-loader": "1.1.11",
+    "webpack-merge": "4.1.2",
+    "copy-webpack-plugin": "4.5.1",
+    "webpack": "4.8.1",
+    "concat-with-sourcemaps": "1.0.7",
+    "html-webpack-plugin": "3.2.0",
+    "webpack-cli": "2.0.11",
+    "webpack-dev-server": "3.1.4"
+  }
+}

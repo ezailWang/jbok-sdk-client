@@ -3,8 +3,9 @@
 var sdk = require("./src");
 //const url = "http://47.52.218.141:20002"; //远端节点1
 //const url = 'http://47.52.219.20:20002'  //远端节点2
+const url = "http://139.224.255.21:20002"; //远端节点3
 //const url = 'http://192.168.50.249:20002' //局域网
-const url = "http://localhost:20002"; //本机节点
+//const url = "http://localhost:20002"; //本机节点
 const client = sdk.Client;
 const hasher = sdk.Hasher;
 const jsonCodec = sdk.JsonCodec;
@@ -151,8 +152,8 @@ module.exports = {
 
   //查询合约变量或者调用查询方法
   /**
-   * 
-   * @param {object} params 
+   *
+   * @param {object} params
    */
   contractCall: async function(params) {
     const rsp = await sdkClient.jsonrpc(

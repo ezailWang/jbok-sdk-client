@@ -1,15 +1,19 @@
 "use strict";
 var sdkClient = require("./jbokClient");
 var codeParams = require("./params");
+//使用 async await 建议在外面都加上try/catch捕捉reject  //以下示例方法省略了
 var example = async function() {
   //bestBlockNumber
   const params = {
     method: "bestBlockNumber", //调用api的methodName
     params: {} //api需要的参数列表
   };
-
-  const rsp = await sdkClient.bestBlockNumber(params);
-  console.log("\n\nbestBlockNumber:", rsp);
+  try {
+    const rsp = await sdkClient.bestBlockNumber(params);
+    console.log("\n\nbestBlockNumber:", rsp);
+  } catch (err) {
+    console.log("err:", err);
+  }
 
   //getBlockByNumber
   const params1 = "10";
@@ -32,14 +36,14 @@ var example = async function() {
 
   //getTransactionReceipt
   const params5 =
-    "d65cdebef178408c4b9c449bf73102460293f19deff94f6a191a446926e76157";
+    "41ecb6aed085b6aeed6965c221f8322168f1bd3ffbfa637d1015f9c8101d4ac4";
 
   const rsp5 = await sdkClient.getTransactionReceipt(params5);
   console.log("\ngetTransactionReceipt:", rsp5);
 
   // 发起交易  sendSignedTransaction
   const txRow = {
-    nonce: "12", //nonce 要通过getAccount获取 账户内显示nonce即为下次交易的nonce值
+    nonce: "0", //nonce 要通过getAccount获取 账户内显示nonce即为下次交易的nonce值
     gasPrice: "1",
     gasLimit: "21000",
     receivingAddress:
@@ -56,7 +60,7 @@ var example = async function() {
 
   //部署合约 contractSend
   const txContract = {
-    nonce: "14", //nonce 要通过getAccount获取 账户内显示nonce即为下次交易的nonce值
+    nonce: "1", //nonce 要通过getAccount获取 账户内显示nonce即为下次交易的nonce值
     gasPrice: "1",
     gasLimit: "1500000", //部署合约limit设置可以大点
     receivingAddress: "", //部署合约接收地址为空
@@ -77,7 +81,7 @@ var example = async function() {
     `["name","wsd"]`,// 批量设置 ：`[["name","age","gender"],["wsd","27","man"]]`
     "0x56d1246cbb661dbe8136de7eb146905fb37c40211d520df817ffced2d31611e1",
     codeParams.codeStr,
-    "15",
+    "2",
     1
   );
   console.log("contractSend:", rsp8);
